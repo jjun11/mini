@@ -11,7 +11,7 @@ import java.util.Map;
 @RequestMapping("/users")
 
 public class MemberController {
-    // POST 로그인
+    // POST 로그인1
     @PostMapping("/login")
     public ResponseEntity<Boolean> memberLogin(@RequestBody Map<String, String> loginData) {
         String id = loginData.get("id");
