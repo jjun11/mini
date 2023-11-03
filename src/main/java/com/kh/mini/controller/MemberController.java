@@ -1,5 +1,6 @@
 package com.kh.mini.controller;
 
+import com.kh.mini.dao.MemberDAO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,8 @@ public class MemberController {
         String pwd = loginData.get("pwd");
         System.out.println("ID" + id);
         System.out.println("PWD : " + pwd);
-        return new ResponseEntity<>(true, HttpStatus.OK);
+        MemberDAO dao = new MemberDAO();
+        boolean rst = dao.loginCheck(id, pwd);
+        return new ResponseEntity<>(rst, HttpStatus.OK);
     }
-
 }
